@@ -29,7 +29,7 @@ public class PersonController extends HttpServlet {
 			
 			if(url.contentEquals("inputform.per")) {
 				
-				response.sendRedirect("inputform.jsp");
+				response.sendRedirect("PersonInputform.jsp");
 				
 			}else if(url.contentEquals("inputProc.per")) {
 				
@@ -39,7 +39,7 @@ public class PersonController extends HttpServlet {
 				int result = dao.insert(name, contact);
 				
 				request.setAttribute("result", result);
-				request.getRequestDispatcher("inputView.jsp").forward(request, response);
+				request.getRequestDispatcher("PersonInputView.jsp").forward(request, response);
 				
 			}else if(url.contentEquals("output.per")) {
 				
@@ -53,14 +53,15 @@ public class PersonController extends HttpServlet {
 				List<PersonDTO> list = dao.selectAll();
 				
 				request.setAttribute("list", list);
-				request.getRequestDispatcher("deleteView.jsp").forward(request, response);
+				request.getRequestDispatcher("PersonDeleteform.jsp ").forward(request, response);
 				
 			}else if(url.contentEquals("deleteProc.per")) {
 				
 				int delid = Integer.parseInt(request.getParameter("delid"));
 				int result = dao.delete(delid);
 				
-				response.sendRedirect("deleteList.per");
+				request.setAttribute("result", result);
+				request.getRequestDispatcher("PersonDeleteView.jsp").forward(request, response);
 				
 			}else if(url.contentEquals("modifyList.per")) {
 				
@@ -77,7 +78,8 @@ public class PersonController extends HttpServlet {
 
 				int result = dao.modify(new PersonDTO(targetId, newName, newContact, null));
 				
-				response.sendRedirect("modifyList.per");
+				request.setAttribute("result", result);
+				request.getRequestDispatcher("PersonModifyView.jsp").forward(request, response);
 				
 			}
 		}catch(Exception e) {
