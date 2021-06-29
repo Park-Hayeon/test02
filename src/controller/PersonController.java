@@ -76,7 +76,7 @@ public class PersonController extends HttpServlet {
 				String newName = request.getParameter("newname");
 				String newContact = request.getParameter("newcontact");
 
-				int result = dao.modify(new PersonDTO(targetId, newName, newContact, null));
+				int result = dao.modify(new PersonDTO(targetId, newName, newContact));
 				
 				request.setAttribute("result", result);
 				request.getRequestDispatcher("PersonModifyView.jsp").forward(request, response);
