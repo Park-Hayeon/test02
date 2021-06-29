@@ -9,6 +9,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
-
+	인덱스 화면 ~~! 글 보여라 제발
 </body>
 </html>
