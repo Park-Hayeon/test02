@@ -27,7 +27,7 @@ public class PersonController extends HttpServlet {
 		try {
 			PersonDAO dao = PersonDAO.getInstance();
 			
-			if(url.contentEquals("inputform.per")) {
+			if(url.contentEquals("inputForm.per")) {
 				
 				response.sendRedirect("PersonInputform.jsp");
 				
@@ -53,7 +53,7 @@ public class PersonController extends HttpServlet {
 				List<PersonDTO> list = dao.selectAll();
 				
 				request.setAttribute("list", list);
-				request.getRequestDispatcher("PersonDeleteform.jsp ").forward(request, response);
+				request.getRequestDispatcher("PersonDeleteform.jsp").forward(request, response);
 				
 			}else if(url.contentEquals("deleteProc.per")) {
 				
