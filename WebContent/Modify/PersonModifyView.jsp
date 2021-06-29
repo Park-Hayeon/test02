@@ -9,20 +9,12 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
-	<script>
-		<%
-			int result = (Integer)request.getAttribute("result");
-			if(result > 0){
-				%>
-					alert("Update Complete");
-				<%
-			}else{
-				%>
-					alert("No target ID");
-				<%
-			}
-		%>
-		location.href="index.jsp";
-	</script>
+   <script>
+	   <c:choose>
+	      <c:when test="${result > 0}">alert("Update Complete!")</c:when>
+	      <c:otherwise>alert("No target ID!")</c:otherwise>
+	   </c:choose>
+	   location.href="index.jsp";
+   </script>
 </body>
 </html>
